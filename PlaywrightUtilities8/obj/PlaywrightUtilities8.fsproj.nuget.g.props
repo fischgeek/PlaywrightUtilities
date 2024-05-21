@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\jfischer\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\jfischer\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSystem_Threading_Tasks_Extensions Condition=" '$(PkgSystem_Threading_Tasks_Extensions)' == '' ">C:\Users\jfischer\.nuget\packages\system.threading.tasks.extensions\4.5.4</PkgSystem_Threading_Tasks_Extensions>
+    <PkgSystem_Text_Encodings_Web Condition=" '$(PkgSystem_Text_Encodings_Web)' == '' ">C:\Users\jfischer\.nuget\packages\system.text.encodings.web\8.0.0</PkgSystem_Text_Encodings_Web>
+    <PkgSystem_Text_Json Condition=" '$(PkgSystem_Text_Json)' == '' ">C:\Users\jfischer\.nuget\packages\system.text.json\8.0.2</PkgSystem_Text_Json>
+    <PkgSystem_ComponentModel_Annotations Condition=" '$(PkgSystem_ComponentModel_Annotations)' == '' ">C:\Users\jfischer\.nuget\packages\system.componentmodel.annotations\5.0.0</PkgSystem_ComponentModel_Annotations>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.core\8.0.200</PkgFSharp_Core>
+    <PkgPly Condition=" '$(PkgPly)' == '' ">C:\Users\jfischer\.nuget\packages\ply\0.3.1</PkgPly>
+    <PkgMicrosoft_Bcl_AsyncInterfaces Condition=" '$(PkgMicrosoft_Bcl_AsyncInterfaces)' == '' ">C:\Users\jfischer\.nuget\packages\microsoft.bcl.asyncinterfaces\8.0.0</PkgMicrosoft_Bcl_AsyncInterfaces>
+    <PkgMicrosoft_Playwright Condition=" '$(PkgMicrosoft_Playwright)' == '' ">C:\Users\jfischer\.nuget\packages\microsoft.playwright\1.41.2</PkgMicrosoft_Playwright>
+    <PkgFsToolkit_ErrorHandling Condition=" '$(PkgFsToolkit_ErrorHandling)' == '' ">C:\Users\jfischer\.nuget\packages\fstoolkit.errorhandling\4.15.1</PkgFsToolkit_ErrorHandling>
+    <PkgFSharp_Data_Http Condition=" '$(PkgFSharp_Data_Http)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.http\6.3.0</PkgFSharp_Data_Http>
+    <PkgFSharp_Data_Runtime_Utilities Condition=" '$(PkgFSharp_Data_Runtime_Utilities)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.runtime.utilities\6.3.0</PkgFSharp_Data_Runtime_Utilities>
+    <PkgFSharp_Data_Json_Core Condition=" '$(PkgFSharp_Data_Json_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.json.core\6.3.0</PkgFSharp_Data_Json_Core>
+    <PkgFSharp_Data_Xml_Core Condition=" '$(PkgFSharp_Data_Xml_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.xml.core\6.3.0</PkgFSharp_Data_Xml_Core>
+    <PkgFSharp_Data_WorldBank_Core Condition=" '$(PkgFSharp_Data_WorldBank_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.worldbank.core\6.3.0</PkgFSharp_Data_WorldBank_Core>
+    <PkgFSharp_Data_Csv_Core Condition=" '$(PkgFSharp_Data_Csv_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.csv.core\6.3.0</PkgFSharp_Data_Csv_Core>
+    <PkgFSharp_Data_Html_Core Condition=" '$(PkgFSharp_Data_Html_Core)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data.html.core\6.3.0</PkgFSharp_Data_Html_Core>
+    <PkgFSharp_Data Condition=" '$(PkgFSharp_Data)' == '' ">C:\Users\jfischer\.nuget\packages\fsharp.data\6.3.0</PkgFSharp_Data>
+  </PropertyGroup>
+</Project>

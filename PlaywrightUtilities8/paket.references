@@ -1,0 +1,6 @@
+group Playwright8
+FSharp.Core
+FSharp.Data
+FsToolkit.ErrorHandling
+Microsoft.Playwright
+ply
