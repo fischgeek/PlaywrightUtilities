@@ -11,7 +11,6 @@
     <OutputType>Library</OutputType>
     <WarningsAsErrors>0025;3239;FS0001;FS0020;FS0025;FS0026;FS0193;FS0049</WarningsAsErrors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsPackable>false</IsPackable>
     <Prefer32Bit>false</Prefer32Bit>
     <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     <AssemblyName>PlaywrightUtilities</AssemblyName>
@@ -20,6 +19,20 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
     <NoWarn>FS3560</NoWarn>
   </PropertyGroup>
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>Fischgeek.PlaywrightUtilities8</PackageId>
+    <Title>Playwright Utilities</Title>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Description>
+      Convenience methods for using Playwright in F# (i.e. TryRepeatedly, tryStep)
+    </Description>
+    <RepositoryUrl>https://github.com/fischgeek/PlaywrightUtilities</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PreBuildEvent>del C:\DEV\temp\HP\*bin_Debug_PlaywrightUtilities*_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
     <OutputPath>bin\Debug\</OutputPath>
