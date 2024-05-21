@@ -1,4 +1,0 @@
-group Playwright
-FSharp.Core
-FSharp.Data
-Microsoft.Playwright

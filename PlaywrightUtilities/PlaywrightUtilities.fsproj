@@ -6,25 +6,38 @@
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>-->
   <PropertyGroup>
-    <TargetFramework>Net472</TargetFramework>
+    <TargetFrameworks>Net472; net8</TargetFrameworks>
+    <OutputType>Library</OutputType>
+
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <OptionCompare>Text</OptionCompare>
     <WarningsAsErrors>0025;3239;FS0001;FS0020;FS0025;FS0026;FS0193;FS0049</WarningsAsErrors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <IsPackable>false</IsPackable>
     <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>Fischgeek.PlaywrightUtilities</PackageId>
+    <Title>Playwright Utilities</Title>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Description>
+      Convenience methods for using Playwright in F# (i.e. TryRepeatedly, tryStep)
+    </Description>
+    <RepositoryUrl>https://github.com/fischgeek/PlaywrightUtilities</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PreBuildEvent>del C:\DEV\temp\HP\*bin_Debug_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
-    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PreBuildEvent>del C:\DEV\temp\HP\*bin_Release_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
     <PreBuildEvent>del C:\DEV\temp\HP\C__Dev_Releases_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
-    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <ItemGroup>
@@ -40,5 +53,5 @@
     <Compile Include="Utilities.fs" />
     <None Include="paket.references" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

@@ -1,0 +1,15 @@
+source https://api.nuget.org/v3/index.json
+storage: none
+
+nuget FSharp.Core
+nuget FSharp.Data
+nuget FsToolkit.ErrorHandling
+nuget FsUnit
+nuget FsUnit.Xunit
+nuget Microsoft.Playwright
+nuget ply
+nuget XUnit
+nuget xunit.runner.visualstudio
+
+nuget System.Text.Encodings.Web framework:Net472
+nuget System.Text.Json framework: net8
