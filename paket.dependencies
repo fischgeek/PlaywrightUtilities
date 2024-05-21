@@ -1,7 +1,6 @@
-group Playwright
-storage: none
 source https://api.nuget.org/v3/index.json
-//Op: NugetCleanup
+storage: none
+
 nuget FSharp.Core
 nuget FSharp.Data
 nuget FsToolkit.ErrorHandling
@@ -9,23 +8,8 @@ nuget FsUnit
 nuget FsUnit.Xunit
 nuget Microsoft.Playwright
 nuget ply
-nuget System.Text.Encodings.Web
 nuget XUnit
 nuget xunit.runner.visualstudio
-//Op: End
 
-
-group Playwright8
-storage: none
-source https://api.nuget.org/v3/index.json
-//Op: NugetCleanup
-nuget FSharp.Core
-nuget FSharp.Data
-nuget FsToolkit.ErrorHandling
-nuget FsUnit
-nuget FsUnit.Xunit
-nuget Microsoft.Playwright
-nuget ply
-nuget System.Text.Json
-nuget XUnit
-nuget xunit.runner.visualstudio
+nuget System.Text.Encodings.Web framework:Net472
+nuget System.Text.Json framework: net8

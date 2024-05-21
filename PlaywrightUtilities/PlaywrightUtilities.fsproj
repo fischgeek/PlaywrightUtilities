@@ -6,15 +6,17 @@
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>-->
   <PropertyGroup>
-    <TargetFramework>Net472</TargetFramework>
+    <TargetFrameworks>Net472; net8</TargetFrameworks>
+    <OutputType>Library</OutputType>
+
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <OptionCompare>Text</OptionCompare>
     <WarningsAsErrors>0025;3239;FS0001;FS0020;FS0025;FS0026;FS0193;FS0049</WarningsAsErrors>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <IsPackable>true</IsPackable>
@@ -32,12 +34,10 @@
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PreBuildEvent>del C:\DEV\temp\HP\*bin_Debug_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
-    <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PreBuildEvent>del C:\DEV\temp\HP\*bin_Release_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
     <PreBuildEvent>del C:\DEV\temp\HP\C__Dev_Releases_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
-    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <ItemGroup>

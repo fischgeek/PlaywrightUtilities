@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PlaywrightUtilities", ".\PlaywrightUtilities\PlaywrightUtilities.fsproj", "{AAB71098-4C49-434E-A977-7F5441C98ED7}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PlaywrightUtilities8", "PlaywrightUtilities8\PlaywrightUtilities8.fsproj", "{15D1DF9D-F10B-4C6D-A606-FFBC61AF01E0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{AAB71098-4C49-434E-A977-7F5441C98ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAB71098-4C49-434E-A977-7F5441C98ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAB71098-4C49-434E-A977-7F5441C98ED7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15D1DF9D-F10B-4C6D-A606-FFBC61AF01E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15D1DF9D-F10B-4C6D-A606-FFBC61AF01E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15D1DF9D-F10B-4C6D-A606-FFBC61AF01E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15D1DF9D-F10B-4C6D-A606-FFBC61AF01E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
