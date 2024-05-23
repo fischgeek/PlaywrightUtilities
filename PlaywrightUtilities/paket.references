@@ -1,6 +1,5 @@
 FSharp.Core
-FSharp.Data
 Microsoft.Playwright
-
-ply framework: net8
-FsToolkit.ErrorHandling framework: net8
+ply 
+FsToolkit.ErrorHandling
+System.Threading.Tasks.Extensions
