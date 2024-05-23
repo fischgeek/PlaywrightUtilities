@@ -9,6 +9,7 @@ nuget FsUnit.Xunit
 nuget Microsoft.Playwright
 nuget ply
 nuget XUnit
+nuget System.Threading.Tasks.Extensions
 nuget xunit.runner.visualstudio
 
 nuget System.Text.Encodings.Web framework:Net472

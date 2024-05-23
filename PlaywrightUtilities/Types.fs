@@ -3,7 +3,6 @@
 open Microsoft.Playwright
 open System.Threading.Tasks
 open Microsoft.Playwright
-open FSharp.Data.HtmlNode
 open System
 
 [<AutoOpen>]
