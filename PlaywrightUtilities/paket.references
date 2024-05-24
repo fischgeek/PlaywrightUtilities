@@ -1,5 +1,3 @@
-FSharp.Core
+FSharp.Data
 Microsoft.Playwright
-ply 
-FsToolkit.ErrorHandling
-System.Threading.Tasks.Extensions
+System.Runtime.CompilerServices.Unsafe

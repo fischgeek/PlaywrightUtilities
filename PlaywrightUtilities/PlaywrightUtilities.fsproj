@@ -21,7 +21,7 @@
     <IsPackable>true</IsPackable>
     <PackageId>Fischgeek.PlaywrightUtilities</PackageId>
     <Title>Playwright Utilities</Title>
-    <VersionPrefix>1.0.7</VersionPrefix>
+    <VersionPrefix>1.0.20</VersionPrefix>
     <Description>
       Convenience methods for using Playwright in F# (i.e. TryRepeatedly, tryStep)
     </Description>
