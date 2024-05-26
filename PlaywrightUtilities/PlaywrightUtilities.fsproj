@@ -6,7 +6,8 @@
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>-->
   <PropertyGroup>
-    <TargetFrameworks>net472; net8; net8.0-windows7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <!--<TargetFrameworks>net472; net8; net8.0-windows7.0, netstandard2.0</TargetFrameworks>-->
     <OutputType>Library</OutputType>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
@@ -21,7 +22,7 @@
     <IsPackable>true</IsPackable>
     <PackageId>Fischgeek.PlaywrightUtilities</PackageId>
     <Title>Playwright Utilities</Title>
-    <VersionPrefix>1.0.20</VersionPrefix>
+    <VersionPrefix>1.0.21</VersionPrefix>
     <Description>
       Convenience methods for using Playwright in F# (i.e. TryRepeatedly, tryStep)
     </Description>
