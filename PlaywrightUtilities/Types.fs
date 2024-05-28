@@ -1,8 +1,6 @@
 ﻿namespace PlaywrightUtilities
-
 open Microsoft.Playwright
 open System.Threading.Tasks
-open Microsoft.Playwright
 open System
 
 [<AutoOpen>]

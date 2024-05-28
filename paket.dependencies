@@ -6,3 +6,5 @@ nuget Microsoft.Playwright
 nuget Microsoft.Bcl.AsyncInterfaces 6.0.0
 nuget System.Runtime.CompilerServices.Unsafe 6.0.0
 nuget System.Text.Json >= 6.0.0
+#nuget System.Linq
+#nuget System.Threading.Tasks
