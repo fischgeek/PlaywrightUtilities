@@ -33,11 +33,11 @@
     <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PreBuildEvent>del C:\DEV\temp\HP\*bin_Debug_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
+    <PreBuildEvent>del C:\DEV\temp\HP\*bin_Debug_AlphaCommScraper_*</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PreBuildEvent>del C:\DEV\temp\HP\*bin_Release_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
-    <PreBuildEvent>del C:\DEV\temp\HP\C__Dev_Releases_AlphaCommScraper_* 1&gt;NUL 2&gt;NUL</PreBuildEvent>
+    <PreBuildEvent>del C:\DEV\temp\HP\*bin_Release_AlphaCommScraper_*</PreBuildEvent>
+    <PreBuildEvent>del C:\DEV\temp\HP\C__Dev_Releases_AlphaCommScraper_*</PreBuildEvent>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <ItemGroup>
