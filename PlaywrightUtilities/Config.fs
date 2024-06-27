@@ -1,4 +1,4 @@
-﻿namespace PlaywrightUtilities
+namespace PlaywrightUtilities
 
 open Microsoft.Playwright
 open System.Threading.Tasks
