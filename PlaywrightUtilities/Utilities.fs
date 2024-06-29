@@ -5,7 +5,7 @@ open System.Threading.Tasks
 open System.Linq
 
 [<AutoOpen>]
-module Utilities = 
+module Utilities =
     let mutable browser:IBrowserContext option = None
 
     let getBrowser (kind: Browser) (lo: BrowserTypeLaunchOptions) (pw: IPlaywright) =
@@ -13,13 +13,13 @@ module Utilities =
         task {
             //pw.Devices.[0].ScreenSize.Width <- 800
             pwout $"Browsing with {kind.ToString()}"
-            
+
             return!
                 match kind with
                 | Firefox -> pw.Firefox.LaunchAsync(lo)
                 | Webkit -> pw.Webkit.LaunchAsync(lo)
                 | Chromium
-                | _ -> 
+                | _ ->
                     //failwith "asd"
                     pw.Chromium.LaunchAsync(lo)
         }
@@ -61,7 +61,7 @@ module Utilities =
             //with ex -> go()
         go()
         page
-        
+
     let tryStep pageTask (page: Result<IPage, 'err>) : Result<IPage, 'err> =
         //iStep <- iStep + 1
         //let stepNumber = iStep |> ToString |> SP.PadLeftSpecific '0' 2
@@ -69,7 +69,7 @@ module Utilities =
         //let dir = @"c:\temp\x\"
         page
         |> function
-        | Ok page -> 
+        | Ok page ->
             let go() =
                 //try
                     task

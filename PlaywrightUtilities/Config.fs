@@ -8,9 +8,9 @@ open System
 module Config =
     let mutable FailOnFirstError = false
     let mutable pwout : string -> unit =
-        fun (x: string) -> 
+        fun (x: string) ->
             Console.WriteLine x
-    
+
     let TryRepeatedly (attempts: int) (sleepMS: int) fn =
         let rec _fn attempt =
             try

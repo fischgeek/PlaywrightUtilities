@@ -4,7 +4,7 @@ open System.Threading.Tasks
 open System
 
 [<AutoOpen>]
-module Types = 
+module Types =
     type Browser =
         | Chromium
         | Chrome
@@ -16,17 +16,17 @@ module Types =
     let runAsyncU (x: Task) = x |> Async.AwaitTask |> Async.RunSynchronously
         //try
         //    x |> Async.AwaitTask |> Async.RunSynchronously
-        //with ex -> 
+        //with ex ->
         //    match ex with
         //    | :? AggregateException as ex ->
         //        ex.InnerExceptions
         //        |> Seq.toList
         //        |> function
-        //        | [] -> 
-        //        |> Seq.iter 
+        //        | [] ->
+        //        |> Seq.iter
         //            (function
         //                | :? PlaywrightException as ex when ex.Message.Contains "as" ->
-        //                    new TruelyFatalError($"This should die: %s{ex.Message}", ex) 
+        //                    new TruelyFatalError($"This should die: %s{ex.Message}", ex)
         //                    |> fun x -> x :> exn
         //                | x -> x :> exn
         //            )
@@ -36,9 +36,9 @@ module Types =
     let runAsyncT (x: Task<'T>) =
         try
             x |> Async.AwaitTask |> Async.RunSynchronously
-        with ex -> 
+        with ex ->
             match ex with
-            | :? AggregateException  as ex -> 
+            | :? AggregateException  as ex ->
                 ex.InnerExceptions
                 |> Seq.map (fun x -> x.Message)
                 |> Seq.iter pwout
@@ -52,7 +52,7 @@ module Types =
         let x = LocatorGetAttributeOptions()
         x.Timeout <- 1000f
         x
-    let lwfo = 
+    let lwfo =
         let x = LocatorWaitForOptions()
         x.Timeout <- 60000f
         x
@@ -65,26 +65,26 @@ module Types =
         member this.waitForLocator = this.WaitForAsync(lwfo) |> runAsyncU
 
         member this.nest (selector: string) = this.Locator(selector)
-        
-        member private this.textBase demandExists o = 
+
+        member private this.textBase demandExists o =
             try
                 this.InnerTextAsync(lito) |> runAsyncT
-            with ex -> 
+            with ex ->
                 if demandExists then raise ex
                 else raise (new NonFatalException())
 
         member this.text = this.textBase false lito
-        
+
         member private this.tryGetTextBase demandExists (selector: string) : Result<string, string> =
             try this.Locator(selector).textBase demandExists lito |> Ok
             with _ -> Error $"Failed to get text for selector: '{selector}'"
 
-        member private this.getTextOrEmptyStringRepeatedly demandExists maxRetries (selector: string) : Result<string, string> = 
+        member private this.getTextOrEmptyStringRepeatedly demandExists maxRetries (selector: string) : Result<string, string> =
             let rec tryRepeatedly cnt =
-                this.tryGetTextBase demandExists selector 
+                this.tryGetTextBase demandExists selector
                 |> function
                 | Ok x -> x |> Ok
-                | Error _ -> 
+                | Error _ ->
                     if cnt > maxRetries then
                         if maxRetries = 10 then ()
                         let msg = $"[getNestedTextOrEmptyStringRepeatedly] Too many attempts to find selector '{selector}'. MaxRetries: {maxRetries}"
@@ -92,7 +92,7 @@ module Types =
                             if Config.FailOnFirstError then
                                 failwith msg
                         msg |> Error
-                    else 
+                    else
                         let newCnt = cnt + 1
                         let msg = $"[getNestedTextOrEmptyStringRepeatedly] Searching for selector '{selector}'. Attempt: {newCnt}."
                         if demandExists then
@@ -101,15 +101,15 @@ module Types =
             tryRepeatedly 0
 
         member this.tryGetText (selector: string) = this.getTextOrEmptyStringRepeatedly true 10 selector
-            
+
         member this.getTextOrEmptyStringFast (selector: string) : string =
             this.getTextOrEmptyStringRepeatedly false 2 selector
             |> function
             | Ok x -> x
-            | Error x -> 
+            | Error x ->
                 //log error x
                 ""
-        
+
         member this.countChildren (selector: string) = this.Locator(selector).CountAsync() |> runAsyncT
 
         member this.getAllChildren (selector: string) = this.Locator(selector).AllAsync() |> runAsyncT |> Seq.toList
@@ -117,28 +117,28 @@ module Types =
         member private this.getAttributeValue (attr: string) = this.GetAttributeAsync(attr, lat) |> runAsyncT
 
         member private this.tryGetAttributeValueBase (attr: string) (selector: string) : Result<string, string> =
-            try 
+            try
                 selector
                 |> function
                 | "" -> this.getAttributeValue attr
-                | selector -> 
+                | selector ->
                     let l = this.Locator(selector)
                     l.getAttributeValue attr
                 |> Ok
             with _ -> Error $"Failed to get text for selector '{selector}' with attribute '{attr}'"
 
-        member private this.getAttributeValueOrEmptyStringRepeatedly demandExists maxRetries (attr: string) (selector: string) : Result<string, string> = 
+        member private this.getAttributeValueOrEmptyStringRepeatedly demandExists maxRetries (attr: string) (selector: string) : Result<string, string> =
             let rec tryRepeatedly cnt =
-                this.tryGetAttributeValueBase attr selector 
+                this.tryGetAttributeValueBase attr selector
                 |> function
                 | Ok x -> x |> Ok
-                | Error _ -> 
-                    if cnt > maxRetries then 
+                | Error _ ->
+                    if cnt > maxRetries then
                         let msg = $"[getAttributeValueOrEmptyStringRepeatedly] Too many attempts to locate selector '{selector}' with attr '{attr}'. MaxRetries: {maxRetries}"
                         if Config.FailOnFirstError then
                             failwith msg
                         msg |> Error
-                    else 
+                    else
                         let newCnt = cnt + 1
                         let msg = $"[getAttributeValueOrEmptyStringRepeatedly] Searching for selector '{selector}' with attr '{attr}'. Attempt {newCnt}"
                         if demandExists then
@@ -147,20 +147,20 @@ module Types =
             tryRepeatedly 0
 
         member this.tryGetAttributeValue (attr: string) (selector: string) = this.getAttributeValueOrEmptyStringRepeatedly true 10 attr selector
-            
+
         member this.tryGetAttributeValueSelf (attr: string) = this.tryGetAttributeValue attr ""
 
         member this.getAttributeValueOrEmptyStringFast (attr: string) (selector: string) : string =
             this.getAttributeValueOrEmptyStringRepeatedly false 2 attr selector
             |> function
             | Ok x -> x
-            | Error x -> 
+            | Error x ->
                 //log error x
                 ""
 
         member this.isVisible = this.IsVisibleAsync() |> runAsyncT
 
-        //member this.tryGetAttrValueIfVisible (attr: string) (selector: string) = 
+        //member this.tryGetAttrValueIfVisible (attr: string) (selector: string) =
         //    try
         //        let l = this.Locator(selector)
         //        if l.IsVisibleAsync() |> runAsyncT then
@@ -168,14 +168,14 @@ module Types =
         //        else Error "Selector does not exist: {selector}"
         //    with _ -> Error $"Failed to get attribute from selector: {selector}"
 
-        //member this.getNestedAttrValueOrEmptyStringIfVisible (attr: string) (selector: string) = 
+        //member this.getNestedAttrValueOrEmptyStringIfVisible (attr: string) (selector: string) =
         //    this.tryGetAttrValueIfVisible attr selector
         //    |> function
         //    | Ok x -> x
-        //    | Error _ -> 
+        //    | Error _ ->
         //        out $"Didn't find selector: {selector}"
         //        ""
-        
+
         //member private this.tryGetNestedTextIfVisible (selector: string) =
         //    try
         //        let l = this.Locator(selector)
@@ -184,30 +184,30 @@ module Types =
         //        else Error $"Selector does not exist: {selector}"
         //    with _ -> Error $"Failed to get text for selector: {selector}"
 
-        //member private this.getNestedTextOrEmptyStringIfVisible selector = 
+        //member private this.getNestedTextOrEmptyStringIfVisible selector =
         //    this.tryGetNestedTextIfVisible selector
         //    |> function
         //    | Ok x -> x
-        //    | Error _ -> 
+        //    | Error _ ->
         //        out $"Didn't find selector: {selector}"
         //        ""
 
     type Microsoft.Playwright.IPage with
-        
-        member this.getAllChildren selector = 
+
+        member this.getAllChildren selector =
             let maxCount = 10
             let rec tryRepeatedly cnt =
                 let l = this.Locator(selector)
                 try
                     l.AllAsync() |> runAsyncT
-                with _ -> 
+                with _ ->
                     if cnt > maxCount then failwith "Could not locate all items."
                     else
                         System.Threading.Thread.Sleep 1000
                         tryRepeatedly (cnt + 1)
             tryRepeatedly maxCount
 
-        member this.goTo url = 
+        member this.goTo url =
             pwout $"Navigating to {url}"
             this.GotoAsync(url) |> runAsyncU
 
@@ -216,12 +216,12 @@ module Types =
         member this.waitForSelector selector = this.Locator(selector).WaitForAsync() |> runAsyncU
 
         member this.waitForLocator (locator: ILocator) = locator.waitForLocator
-        
+
         member this.waitForSelectorQuiet selector = this.waitForSelector selector |> ignore
 
         member this.isVisible selector = this.Locator(selector).IsVisibleAsync() |> runAsyncT
 
-        member this.getTextOrEmptyStringFast selector = 
+        member this.getTextOrEmptyStringFast selector =
             this.Locator(selector)
 
         member this.screenshotToPath path =
@@ -233,7 +233,7 @@ module Types =
                     let! bytes = this.ScreenshotAsync o
                     ()
                 }
-            
+
         member this.fillAndKeyUp selector v =
             task
                 {
